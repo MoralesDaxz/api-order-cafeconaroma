@@ -1,0 +1,3 @@
+GET http://localhost:3000/orders HTTP/1.1
+
+GET http://localhost:3000/orders/A07052024-2 HTTP/1.1
