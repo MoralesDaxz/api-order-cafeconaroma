@@ -39,6 +39,13 @@ app.get("/orders/:id", (req, res) => {
   const order = data.orders.find((item) => item.invoice == id);
   res.json(order);
 });
+/* Ordenes por identity */
+app.get("/identity/:id", (req, res) => {
+  const data = readData();
+  const id = req.params.id;
+  const orders = data.orders.filter((item) => item.identity == id);
+  res.json(orders);
+});
 /* Obtener longitud de ordenes para correlativo de factura */
 app.get("/correlative", (req, res) => {
   const data = readData();
@@ -48,11 +55,22 @@ app.get("/correlative", (req, res) => {
 app.post("/orders", (req, res) => {
   const data = readData();
   const body = req.body;
+  const office = body.office
+  const date = body.date
+  const correlative = data.correlative + 1
   const newOrder = {
-    order: data.orders.length + 1,
+    order: correlative,
+    invoice: office + date + correlative,
     ...body,
   };
+try {
+  data.correlative = correlative
   data.orders.unshift(newOrder);
+  console.log(data.correlative);
   writeData(data);
   return res.json(newOrder);
+  
+} catch (error) {
+  return res.send("Error al registrar datos de compra");
+}
 });
