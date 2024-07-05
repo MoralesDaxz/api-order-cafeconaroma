@@ -1,52 +1,19 @@
 {
   "orders": [
     {
-      "office":"A001",
-      "order":"1",
-      "date":"07052024",
+      "order": 1,
       "invoice": "A070520241",
-      "time": "20:18",
-      "delivery":"normal",
-      "payDelivery":0,
-      "total":19,
-      "country":"Spain",
-      "city":"Madrid",
-      "address":"Calle de la Paz, 1",
-      "name":"Jose",
-      "lastName":"Rojo",
-      "products": [
-        {
-          "_id": "choco250",
-          "img_url": "https://i.ibb.co/cQVJBvF/Choco.png",
-          "brand": "chocolate",
-          "units": 2,
-          "price": 7,
-          "package": 250
-        },
-        {
-          "_id": "classic250",
-          "img_url": "https://i.ibb.co/HznwCrj/Classic.png",
-          "brand": "classic",
-          "units": 1,
-          "price": 5,
-          "package": 250
-        }
-      ]
-    },
-    {
-      "office":"A001",
-      "order":"2",
-      "date":"07052024",
-      "invoice": "A070520242",
-      "time": "20:20",
-      "delivery":"urgent",
-      "payDelivery":9,
-      "total":28,
-      "country":"Spain",
-      "city":"Madrid",
-      "address":"Calle de la Paz, 1",
-      "name":"Ana",
-      "lastName":"Perez",
+      "date": "07052024",
+      "time": "12:00",
+      "office": "I001",
+      "delivery": "normal",
+      "payDelivery": 0,
+      "total": 19,
+      "country": "Spain",
+      "city": "Madrid",
+      "address": "Calle de la Paz, 1",
+      "name": "Jose",
+      "lastName": "Rojo",
       "products": [
         {
           "_id": "choco250",
