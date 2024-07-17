@@ -1,6 +1,7 @@
 import express from "express"; /* aplicar type:module linea 5 package.json */
 import fs from "fs"; /* nos permite trabajar con archivos, incluido en NODE */
-const cors = require("cors");
+import cors from "cors";
+const cors = cors("cors");
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
