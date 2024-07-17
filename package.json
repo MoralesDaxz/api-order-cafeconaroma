@@ -8,7 +8,7 @@
     "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "proxy": "https://api-order-cafeconaroma.onrender.com",
+  "proxy": "https://api-order-cafeconaroma.onrender.com",
   "keywords": [
     "node",
     "js"
@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.19.2"
   },
   "devDependencies": {
