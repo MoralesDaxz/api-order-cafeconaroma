@@ -52,7 +52,7 @@ app.get("/correlative", (req, res) => {
   return res.json({ value: data.orders.length });
 });
 /* Crear orden */
-app.post("/orders", (req, res) => {
+app.post("/new", (req, res) => {
   const data = readData();
   const body = req.body;
   const office = body.office
