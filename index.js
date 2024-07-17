@@ -66,7 +66,6 @@ app.post("/new", (req, res) => {
 try {
   data.correlative = correlative
   data.orders.unshift(newOrder);
-  console.log(data.correlative);
   writeData(data);
   return res.json(newOrder);
   
