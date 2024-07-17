@@ -6,7 +6,7 @@ app.use(cors(corsOptions));
 app.use(express.json());
 
 const corsOptions = {
-  origin: "http://localhost:3000" || "https://cafeconaroma.vercel.app/", // Permite solicitudes desde este origen
+  origin: "http://localhost:3000" || "https://cafeconaroma.vercel.app/new", // Permite solicitudes desde este origen
   optionsSuccessStatus: 200, // Para algunas versiones de navegadores legacy
 };
 app.listen(3000, () => {
