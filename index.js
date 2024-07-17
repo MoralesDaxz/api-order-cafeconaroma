@@ -1,15 +1,15 @@
 import express from "express"; /* aplicar type:module linea 5 package.json */
 import fs from "fs"; /* nos permite trabajar con archivos, incluido en NODE */
 import cors from "cors";
-const cors = cors("cors");
-const app = express();
-app.use(cors(corsOptions));
-app.use(express.json());
-
 const corsOptions = {
   origin: "http://localhost:3000" || "https://cafeconaroma.vercel.app/new", // Permite solicitudes desde este origen
   optionsSuccessStatus: 200, // Para algunas versiones de navegadores legacy
 };
+const corsSistem = cors("cors");
+const app = express();
+app.use(corsSistem(corsOptions));
+app.use(express.json());
+
 app.listen(3000, () => {
   console.log("Servidor corriendo en el puerto 3000");
 }); /* Levantamos servidor */
