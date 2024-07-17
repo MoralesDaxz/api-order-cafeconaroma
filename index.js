@@ -1,7 +1,14 @@
 import express from "express"; /* aplicar type:module linea 5 package.json */
 import fs from "fs"; /* nos permite trabajar con archivos, incluido en NODE */
+const cors = require("cors");
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
+
+const corsOptions = {
+  origin: "http://localhost:3000" || "https://cafeconaroma.vercel.app/", // Permite solicitudes desde este origen
+  optionsSuccessStatus: 200, // Para algunas versiones de navegadores legacy
+};
 app.listen(3000, () => {
   console.log("Servidor corriendo en el puerto 3000");
 }); /* Levantamos servidor */
@@ -55,21 +62,20 @@ app.get("/correlative", (req, res) => {
 app.post("/new", (req, res) => {
   const data = readData();
   const body = req.body;
-  const office = body.office
-  const date = body.date
-  const correlative = data.correlative + 1
+  const office = body.office;
+  const date = body.date;
+  const correlative = data.correlative + 1;
   const newOrder = {
     order: correlative,
     invoice: office + date + correlative,
     ...body,
   };
-try {
-  data.correlative = correlative
-  data.orders.unshift(newOrder);
-  writeData(data);
-  return res.json(newOrder);
-  
-} catch (error) {
-  return res.send("Error al registrar datos de compra");
-}
+  try {
+    data.correlative = correlative;
+    data.orders.unshift(newOrder);
+    writeData(data);
+    return res.json(newOrder);
+  } catch (error) {
+    return res.send("Error al registrar datos de compra");
+  }
 });
