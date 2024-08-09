@@ -10,7 +10,7 @@ const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
 
-app.listen(3000, () => {
+app.listen(3001, () => {
   console.log("Servidor corriendo en el puerto 3000");
 }); /* Levantamos servidor */
 
@@ -63,12 +63,13 @@ app.get("/correlative", (req, res) => {
 app.post("/new", (req, res) => {
   const data = readData();
   const body = req.body;
-  const office = body.office;
+  const office = "E001";
   const date = body.date;
+  const time = body.time;
   const correlative = data.correlative + 1;
   const newOrder = {
     order: correlative,
-    invoice: office + date + correlative,
+    invoice: office + time + date + correlative,
     ...body,
   };
   try {
