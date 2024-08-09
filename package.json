@@ -1,11 +1,12 @@
 {
   "name": "api-order-cafeconaroma",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Api que registra las ordenes de compras enviadas desde Aromacafe",
+  "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon index.js",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "proxy": "https://api-order-cafeconaroma.onrender.com",
@@ -17,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "install": "^0.13.0"
   },
