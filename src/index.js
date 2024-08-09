@@ -4,16 +4,18 @@ import dotenv from 'dotenv';
 import { fetchDateMadrid } from "./utils/fetchDate.js";
 import { readData, writeData } from "./utils/fileUtils.js";
 
-const corsOptions = {
-  origin: ["http://localhost:3001", "https://cafeconaroma.vercel.app"],
-  optionsSuccessStatus: 200, // Para algunas versiones de navegadores legacy
-};
 dotenv.config();
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://cafeconaroma.vercel.app"], // Orígenes permitidos
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos HTTP permitidos
+  allowedHeaders: ['Content-Type', 'Authorization'], // Headers permitidos
+  optionsSuccessStatus: 200 // Para navegadores legacy
+};
 const PORT = process.env.PORT || 3001;
 const app = express();
 app.use(cors(corsOptions));
 app.use(express.json());
-
+app.options('*', cors(corsOptions));
 app.listen(PORT, () => {
   console.log("Servidor corriendo en el puerto ", PORT);
 }); /* Levantamos servidor */
@@ -69,7 +71,7 @@ app.post("/new", async (req, res) => {
     data.correlative = correlative;
     data.orders.unshift(newOrder);
     writeData(data);
-    return res.status(200).json(newOrder);
+    return res.json(newOrder);
   } catch (error) {
     console.error("Error creating new order:", error);
     return res.status(500).send("Error al registrar datos de compra");

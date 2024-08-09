@@ -1,3 +1,5 @@
+import dotenv from 'dotenv';
+dotenv.config();
 const fetchDateMadrid = async () => {
   const URL_API = process.env.API_TIME_MADRID;
   try {
