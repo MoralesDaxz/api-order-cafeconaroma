@@ -56,16 +56,15 @@ app.get("/correlative", (req, res) => {
 /* Crear orden */
 app.post("/new", async (req, res) => {
   try {
-    const { time, date } = await fetchDateMadrid(); // Esperar a que la fecha y hora se obtengan
     const data = readData();
     const body = req.body;
+    const date = req.body.date
     const office = "E001";
     const correlative = data.correlative + 1;
     const newOrder = {
       order: correlative,
       invoice: office + date + correlative,
-      time: time,
-      ...body,
+         ...body,
     };
 
     data.correlative = correlative;
